@@ -153,7 +153,7 @@ function addEntity(entity, data) {
 var counter = 0;
 function addEntityWithoutName(data) {
     //var name = "X"+Math.floor((Math.random()*100)+1);
-    var name = "X"+(counter++)%100;
+    var name = "X"+(counter++)%500;
     addEntity(name,data);
 }
 
@@ -277,7 +277,9 @@ function update() {
         if (xhr.readyState === 4) {
             //console.log(typeof xhr.response)
             //console.log(xhr.response)
+            console.log("update")
             world = JSON.parse(xhr.response)
+            drawNextFrame()
             drawFrame()
         }
     }
@@ -291,7 +293,7 @@ function update() {
 }
 
 // 30 frames per second
-setInterval( update, 1000/30.0);
+setInterval( update, 1000/30.0);            
 
 
 
